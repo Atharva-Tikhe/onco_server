@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OncoOmics | Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/home.css" />
+  </head>
+  <body>
+
+    <a class="back-btn" href="/" id="backlink">Go Back</a>
+
+        <h2 class="heading heading-after">Welcome to </h2>
+        <p class="para__1">
+          OncoOmics is a cancer omics portal which incorporates somatic
+          mutation, RNA expression, miRNA expression, methylation, copy number
+          variation and clinical data in addition to annotation bases for 10
+          types of cancer. The OncoOmics portal is robust data-driven platform
+          that allows cancer researchers and bioinformaticians to search and
+          download cancer data for analysis. This portal also uses published
+          bioinformatics algorithms to identify driver genes and present them
+          with different molecular features; there are functions, with
+          respective to cancer and genes to help researchers visualize the
+          relationships between cancers, driver genes, gene-drug interaction,
+          protein -protein interaction and also their associated oncopathways.
+          Analysis results can be visualized by scatter plots, box plots, or
+          Kaplan-Meier plots. It provides four points of view, ‘Mutation’,
+          ‘Gene’, ‘Pathway’, and ‘Cancer’, to help researchers to visualize the
+          relationships between cancers and driver variants.
+        </p>
+        <h2 class="heading">"Omics"</h2>
+        <ul>
+          <li>
+            Clinical Data : It inculdes attributes like age, overall survival,
+            phological stage (I, II, III, IV), TNM staging, Clinical subtype,
+            Molecular Subtype, number of lymph nodes, radiation therapy.
+          </li>
+          <li>
+            Copy Number (Level: Focal, Gene) : Normalized copy number (SNPs) ans
+            Copy number alterations for aggregated/segmented regions, per sample
+          </li>
+          <li>
+            miRNA (Leve: Gene, Isoform) : Normalized signals per probe or probe
+            set for each participant's tumor sample
+          </li>
+          <li>
+            Mutation (Level: Site, Gene) : Mutation calls for each participant
+          </li>
+          <li>
+            Methylation (Level: Gene) : Calculated beta values mapped to genome,
+            per sample
+          </li>
+          <li>
+            RNAseq (Level: Gene) : The normalized expression signal of
+            individual Gene (transcripts), per sample
+          </li>
+          <li>
+            RPPA (Level: Analyte, Gene) : Normalized protein expression for each
+            gene, per sample
+          </li>
+          <li>
+            Proteomics (Level: Gene) : Average log-ratio of sample reporter-ion
+            to common reference of peptide ions associated with the gene in
+            acquisitions from a specific biological Sample (Unshared Log
+            Ratio-Average log-ratio of sample reporter-ion to common reference
+            of peptide ions of unshared peptides only associated with the gene
+            in acquisitions from a specific biological sample).
+          </li>
+
+          <li>
+            Phospho-Proteomics (Level: Site) : Average log-ratio of sample
+            reporter-ion to common reference of peptide ions associated with
+            phosphorylated site combinations in acquisitions from a specific
+            biological sample (CDAP Protein Report).
+          </li>
+
+          <li>
+            Glyco-Proteomics (Level: Site) : Average log-ratio of sample
+            reporter-ion to common reference of peptide ions associated with
+            deglycosylated N-glycosylation site combinations in acquisitions
+            from a specific biological sample (CDAP Protein Report).
+          </li>
+        </ul>
+        <div class="image-set">
+          <h2>A general workflow of omics</h2>
+          <img
+            src="../static/images/home.omics-workflow.png"
+            alt="omics-workflow"
+            class="imgset"
+          />
+          <img
+            src="../static/images/home.integrative-biology.jpg"
+            alt="omics-integrative biology"
+            class="imgset"
+          />
+        </div>
+    </div>
+
+  </body>
+</html>

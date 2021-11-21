@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cheminfo | Descriptor</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="m-5">
+    <h3 class="text-center text-md font-montserrat my-5">
+      Cheminformatics Descriptors sample
+    </h3>
+
+    <form class="d-flex flex-column">
+      <label for="smiles-input" style="margin: 0.5em 0.5em"
+        ><strong>Paste Smiles</strong>
+      </label>
+      <textarea
+        type="text"
+        name="smiles"
+        id="smiles-input"
+        style="margin: 0.5em 0.5em; height: 150px; width: 400px"
+        disabled
+        rows="100"
+        value="smiles"
+      >
+      OC(=O)c1ccc2c(c1)nc(c3ccc(O)cc3F)n2C4CCCCC4	CHEMBL179256
+        CC(C)(C)CCN1[C@H](C(=C(C1=O)C2=NS(=O)(=O)c3ccccc3N2)O)C(C)(C)C	CHEMBL204350
+        OC(=O)c1ccc2c(c1)nc(c3ccc(O)cc3)n2C4CCCCC4	CHEMBL179257
+        OC(=O)c1ccc2c(C3CCCCC3)c([nH]c2c1)c4ccc(O)cc4	CHEMBL178784
+        CN(C)C(=O)Cn1c(c2ccc(OCc3ccccc3)cc2)c(C4CCCCC4)c5ccc(cc15)C(=O)O	CHEMBL369319
+        CNC(=O)c1c(oc2ccc(c(F)c12)c3cc(cc(F)c3C)C(=O)NC4(COC4)c5ncccn5)c6ccc(F)cc6	CHEMBL3651437
+        CS(=O)(=O)N1CCN(CC1)C(=O)Cn2c(c3ccc(Cl)cc3)c(C4CCCCC4)c5ccc(cc25)C(=O)O	CHEMBL191196
+        OC(=O)[C@H](Cc1c[nH]c2ccc(NC(=O)C(=O)O)cc12)NC(=O)c3ccc4c(c3)nc(c5cocc5)n4C6CCCCC6	CHEMBL173466
+        ....
+      </textarea>
+      <input
+        type="button"
+        value="Submit"
+        type="submit"
+        style="margin: 0.5em 0.5em; width: 70px; padding: 0.25em"
+        disabled
+      />
+    </form>
+
+    <hr />
+
+    <h3 class="m-5">Output</h3>
+
+    <ul>
+      {% for file in outputs %}
+      <li>
+        <a href="{{ url_for('cheminfo_outputs', file=(file)) }}" download
+          >{{ file }}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

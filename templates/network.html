@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.14.2/cytoscape.min.js"></script>
+    <!-- <script src="../static/js/index_script.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/cytoscape-cola@2.5.0/cytoscape-cola.min.js"></script>
+    <title>OncoOmics | Network Visualization</title>
+  </head>
+  <body>
+    <div id="cy"></div>
+    <style>
+      #cy {
+        width: 100vw;
+        height: 500px;
+        display: block;
+        background-color: #f5f5f5;
+      }
+    </style>
+    <script>
+      var cy = cytoscape({
+        container: document.getElementById("cy"),
+
+        style: [
+          {
+            selector: "node",
+            style: {
+              width: "50px",
+              height: "50px",
+              "border-width": "2px",
+              "border-style": "solid",
+              "border-color": "red",
+              content: "data(id)",
+              "text-valign": "center",
+              "text-halign": "center",
+            },
+          },
+          {
+            selector: "node.ghost-node",
+            style: {
+              width: "1px",
+              height: "1px",
+              opacity: "0",
+              events: "no",
+              "text-valign": "top",
+              "text-halign": "center",
+            },
+          },
+          {
+            selector: ":parent",
+            css: {
+              "text-valign": "top",
+              "text-halign": "center",
+            },
+          },
+          {
+            selector: 'node[shape="ellipse"]',
+            style: {
+              width: "70px",
+              height: "50px",
+            },
+          },
+          {
+            selector: "edge.with-compound",
+            style: {
+              opacity: "0",
+            },
+          },
+          {
+            selector: "edge.ghost-node-connector",
+            style: {
+              "curve-style": "straight",
+              "line-color": "red",
+              opacity: "1",
+            },
+          },
+        ],
+
+        elements: {
+          nodes: [
+            {
+              data: {
+                id: "a",
+              },
+            },
+            {
+              data: {
+                id: "b",
+                parent: "a",
+              },
+            },
+            {
+              data: {
+                id: "c",
+              },
+            },
+            {
+              data: {
+                id: "d",
+              },
+            },
+          ],
+          edges: [
+            {
+              data: {
+                id: "x",
+                source: "a",
+                target: "b",
+              },
+              classes: "with-compound",
+            },
+          ],
+        },
+
+        layout: {
+          name: "grid",
+          fit: true,
+          padding: 100,
+          boundingBox: {
+            x1: 0,
+            y1: 0,
+            x2: 400,
+            y2: 400,
+          },
+        },
+        minZoom: 1.5,
+        maxZoom: 3,
+        motionBlur: true,
+        wheelSensitivity: 0.05,
+      });
+    </script>
+  </body>
+</html>

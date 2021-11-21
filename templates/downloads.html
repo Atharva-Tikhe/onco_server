@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/css/downloads.css" />
+    <title>OncoOmics | Downloads</title>
+  </head>
+  <body>
+    <a class="back-btn" href="/" id="backlink">Go Back</a>
+
+    <h1>Download CSV files</h1>
+
+    <h2>{{heading[0]}}</h2>
+
+    <ul>
+      {% for file in driverFiles %}
+      <li>
+        <a href="{{ url_for('download', filename=(file)) }}" download
+          >{{ file }}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+
+    <hr />
+
+    <h2>{{heading[1]}}</h2>
+    <ul>
+      {% for file in geneFiles %}
+      <li>
+        <a href="{{ url_for('download', filename=(file)) }}" download
+          >{{ file }}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+    
+
+    <hr />
+  </body>
+</html>

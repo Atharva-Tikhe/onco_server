@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/ngl@0.10.4/dist/ngl.js"></script>
+  </head>
+  <body>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var stage = new NGL.Stage("viewport");
+        // stage.loadFile("rcsb://1crn", { defaultRepresentation: true });
+        stage.loadFile("/ligand/Seliciclib.pdbqt", {
+          defaultRepresentation: "cartoon",
+          ext: "sdf",
+        });
+        // stage
+        //   .loadFile("http://127.0.0.1:5000/ligand", { ext: "pdb" })
+        //   .then(function (o) {
+        //     o.addRepresentation("cartoon");
+        //     o.autoView();
+        //   });
+
+        var stage2 = new NGL.Stage("viewport2");
+        // stage.loadFile("rcsb://1crn", { defaultRepresentation: true });
+        stage2.loadFile("/pdbs/4mzi.pdbqt", {
+          defaultRepresentation: "cartoon",
+          ext: "pdb",
+        });
+      });
+    </script>
+    <div id="viewport" style="width: 400px; height: 300px"></div>
+    <div id="viewport2" style="width: 400px; height: 300px"></div>
+  </body>
+</html>

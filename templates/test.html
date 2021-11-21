@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Text Mining | Results</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.2/papaparse.js"></script>
+    <style>
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      td,
+      th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <a id="csv_link" href="/textmining/result/{{csv_name}}">view csv</a> -->
+    <a
+      id="csv_link"
+      href="{{ url_for('download_textmining_result', filename=(csv_name)) }}"
+      >Download csv</a
+    >
+
+    <style>
+      a {
+        padding: 1.25em 1.25em;
+      }
+    </style>
+
+    <div id="csvContainer">
+      <script>
+        var tableData = "{{csv_name}}";
+
+        function arrayToTable(tableData) {
+          var table = $("<table></table>");
+          $(tableData).each(function (i, rowData) {
+            var row = $("<tr></tr>");
+            $(rowData).each(function (j, cellData) {
+              row.append($("<td>" + cellData + "</td>"));
+            });
+            table.append(row);
+          });
+          return table;
+        }
+
+        function get_csv_ajax(tableData) {
+          $.ajax({
+            type: "GET",
+            url: `http://127.0.0.1:5000/textmining/show/${tableData}`,
+            success: function (data) {
+              $("body").append(arrayToTable(Papa.parse(data).data));
+            },
+          });
+        }
+
+        get_csv_ajax(tableData);
+      </script>
+    </div>
+
+    <style>
+      #csvContainer {
+        width: 90%;
+      }
+    </style>
+
+    <ul>
+      {% for file in extraction %}
+      <li>
+        <a
+          id="csv_link"
+          href="{{ url_for('download_data_extraction_result', filename=(file)) }}"
+          >{{ file }}</a
+        >
+      </li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>

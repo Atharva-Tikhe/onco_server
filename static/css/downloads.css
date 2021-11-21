@@ -1,0 +1,41 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 1.25em auto;
+}
+:root {
+  --heading-font: "Montserrat", sans-serif;
+  --text-font: "Poppins", sans-serif;
+}
+
+body {
+  width: 80%;
+}
+
+.back-btn {
+  border: 2px solid black;
+  padding: 1em 1.25em;
+  text-decoration: none;
+  transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+.back-btn:hover {
+  background-color: black;
+  color: white;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+h2,h1 {
+  margin: 2.25em auto;
+  font-family: var(--heading-font);
+}
+ul {
+  list-style: none;
+  font-family: var(--text-font);
+}
+
+a {
+  text-decoration: underline rgb(128, 128, 128) 2px;
+  color: rgb(0, 0, 0);
+}

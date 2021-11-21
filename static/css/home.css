@@ -1,0 +1,71 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 1.25em auto;
+}
+
+:root {
+  --heading-font: "Montserrat", sans-serif;
+  --text-font: "Poppins", sans-serif;
+}
+
+.back-btn {
+  color: black;
+  border: 2px solid black;
+  padding: 1em 1.25em;
+  text-decoration: none;
+  transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+.back-btn:hover {
+  background-color: black;
+  color: white;
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+body {
+  width: 80%;
+}
+
+.heading {
+  column-count: 2;
+  font-family: var(--heading-font);
+  font-weight: 400;
+  font-size: 28pt;
+}
+.heading-after::after {
+  content: "OncoOmics";
+  text-decoration: underline rgb(36, 126, 1) 2px;
+}
+
+h2 {
+  font-family: var(--heading-font);
+  font-weight: 400;
+  font-size: 28pt;
+}
+
+.para__1 {
+  column-count: 2;
+  font-family: var(--text-font);
+  line-height: 1.55em;
+}
+
+li {
+  font-family: var(--text-font);
+  font-weight: 300;
+}
+
+ul:last-child {
+  border-bottom: 2px solid black;
+}
+
+.imgset {
+  width: 90vh;
+  border: 2px solid rgb(36, 126, 1);
+}
+
+.image-set {
+  display: flex;
+  flex-direction: column;
+}

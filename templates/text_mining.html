@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>OncoOmics | Text Mining</title>
+    <link rel="stylesheet" href="../static/css/autoplotter.css" />
+    <link rel="stylesheet" href="../static/css/textmining.css" />
+  </head>
+  <body>
+    <a class="back-btn" href="/" id="backlink">Go Back</a>
+    <h1>OncoOmics</h1>
+    <h2>Text Mining</h2>
+
+    <form action="/textmining/result" method="get">
+      <label for="query">Query:</label>
+      <input type="text" id="query" name="query" />
+      <input type="submit" value="Submit" />
+    </form>
+  </body>
+</html>

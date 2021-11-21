@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Elbow Plot</h1>
+    <div id="elbow" class="elbow"></div>
+
+    <!-- <h1>clustering freq wrd</h1> -->
+    <h1>PCA</h1>
+    <div id="pca" class="pca"></div>
+
+    <h1>word cloud</h1>
+    <div id="cloud" class="cloud"></div>
+
+    <h1>Frequency Distribution</h1>
+    <div id="fdist1" class="fdist1"></div>
+    <div id="fdist2" class="fdist2"></div>
+  </body>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <script type="text/javascript">
+
+    var elbowPlot = {{elbow | safe}};
+    Plotly.plot('elbow',elbowPlot,{});
+
+    var pcaPlot = {{clustering | safe}};
+    Plotly.plot('pca',pcaPlot,{});
+
+    var wordCloud = {{wrd | safe}};
+    Plotly.plot('cloud',wordCloud,{});
+
+
+  </script>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Calibri, Helvetica, sans-serif;
+            background-color: white;
+            background-image: url('/static/images/bg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        button, .links, a  {
+            background-color: white;
+            width: 10%;
+            color: Black;
+            padding: 15px;
+            margin: 10px 0px;
+            border: 1px solid green;
+            cursor: pointer;
+            float: left;
+        }
+
+        option {
+            width: 50%;
+        }
+
+        #leftbox {
+            float: left;
+            width: 50%;
+
+        }
+
+        #middlebox {
+            float: left;
+            width: 50%;
+
+        }
+
+        #middlebox1 {
+            float: left;
+            width: 25%;
+
+        }
+
+        #middlebox2 {
+            float: left;
+            width: 25%;
+
+        }
+
+        #middlebox3 {
+            float: right;
+            width: 25%;
+
+        }
+
+        #middlebox4 {
+            float: right;
+            width: 25%;
+
+        }
+
+        h1 {
+            color: green;
+            text-align: center;
+        }
+
+
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.19.0/cytoscape.min.js" integrity="sha512-TOWs340KHbJjY/a2SCtsUcXYBg7/xPX72NKpJ3VITogkHJTy2yMyoJE0pxJjumMGHCg46ud89KO5q1Toe3Aeaw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="../static/css/index.css">
+    <script src="../static/js/index_scriptGetScript.js"></script>
+
+</head>
+
+<body>
+    <h1 style="text-align:center"> OncoOmics GUI </h1>
+    <h1 style="text-align:center"> A Web-Based Omic analysis Tool</h1>
+    <div style="align-items: center;">
+        <!-- <button style="margin:5px;" onclick="myFunction()"><b>Home</b></button> -->
+        <a class="links" style="margin:5px;text-decoration: none;" href="/home"><b>Home</b></a>
+        <!-- <button style="margin:5px;" onclick="myFunction()"><b>Browse</b></button> -->
+        <a class="links" style="margin:5px;text-decoration: none;" href="/browser"><b>Browse</b></a>
+        <!-- <button style="margin:5px;" onclick="myFunction()"><b>Search</b></button> -->
+        <a class="links" style="margin:5px;text-decoration: none;" href="/search"><b>Search</b></a>
+        <a class="links" style="margin:5px;text-decoration: none;" href="/downloads"><b>Downloads</b></a>
+        <a class="links" style="margin:5px;text-decoration: none;" href="/analysis"><b>Analysis</b></a>
+        <a class="links" style="margin:5px;text-decoration: none;" href="/about"><b>About</b></a>
+
+        <button style="margin:5px;" onclick="myFunction()"><b>Statistics</b></button> <br><br><br><br>
+        <hr><br>
+    </div>
+    <div id="boxes">
+        <div id="leftbox">
+            <label for="cancer"><b>Choose the Cancer Type</b></label><br><br>
+            <select name="cancer" id="cancer-type">
+                <option value="choose"> Choose A Cancer Type </option>
+                <option value="networks/breastinv_gdi"> Breast invasive carcinoma (BRCA) </option>
+                <option value="networks/colrec_gdi"> Colorectal adenocarcinoma (COADREAD)</option>
+                <option value="networks/cervical_gdi"> Cervical carcinoma(CESC)</option>
+                <option value="networks/liver_gdi"> Liver carcinoma(LIHC)</option>
+                <option value="networks/skin_gdi"> Skin Cutaneous Melanoma (SKCM)</option>
+                <option value="networks/ovar_gdi"> Ovarian serous cystadenocarcinoma (OV)</option>
+                <option value="networks/prost_gdi"> Prostate adenocarcinoma (PRAD)</option>
+                <option value="networks/stomach_gdi"> Stomach carcinoma(STAD)</option>
+                <option value="networks/lung_gdi"> Lung cancer(LUSC)</option>
+                <option value="networks/kidney_gdi"> Kidney carcinoma(KIRC)</option>
+            </select>
+        </div>
+
+        <div id="middlebox">
+            <div id="middlebox1">
+                <label for="cancer"><b>Choose the Cancer Type</b></label><br><br>
+                <select style="width:45%" name="cancer" id="cancer">
+                    <option value="Genomics">Genomics </option>
+                    <option value="CNV">CNV</option>
+                    <option value="SNP">SNP</option>
+                    <option value="Mutation">Mutation</option>
+                    <option value="Pharmco-genomics"> Pharmco-genomics</option>
+                    <option value="Gene expression">Gene expression</option>
+                </select>
+            </div>
+            <div id="middlebox2"><br><br>
+                <select style="width:65%" name="cancer" id="cancer">
+                    <option value="Transcriptomics">Transcriptomics</option>
+                </select>
+            </div>
+            <div id="middlebox4"><br><br>
+                <select style="width:60%" name="cancer" id="cancer">
+                    <option value="Metabolomics">Metabolomics</option>
+
+                </select>
+            </div>
+            <div id="middlebox3"><br><br>
+                <select style="width:50%" name="cancer" id="cancer">
+                    <option value="Proteomics">Proteomics</option>
+
+                </select>
+            </div>
+        </div>
+    </div>
+    <div id="leftbox">
+        <div style="float: left; width: 35%;">
+            <label for="Project"><b><br>Choose the Project</b></label><br><br>
+            <select style="width:28%" name="cancer" id="cancer">
+                <option value="Project">Project</option>
+                <option value="TCGA">TCGA</option>
+                <option value="TARGET">TARGET</option>
+                <option value="NCI">NCI</option>
+            </select>
+        </div>
+        <div style="float: left; width:30%;">
+            <label for="cancer"><b><br>Choose the Genes</b></label><br><br>
+            <select style="width:35%" name="cancer" id="cancer">
+                <option value="Genes">Genes</option>
+                <option value="BRCA1">BRCA1</option>
+                <option value="BRCA2">BRCA2</option>
+                <option value="EGFR">EGFR</option>
+                <option value="ERBB2">ERBB2</option>
+                <option value="BRAF">BRAF</option>
+                <option value="TP53">TP53</option>
+                <option value="PALB2">ATM</option>
+                <option value="CHK2">CHK2</option>
+            </select>
+        </div>
+        <div style="float: right; width: 35%;">
+            <label for="cancer"><b><br>Choose the Drugs</b></label><br><br>
+            <select style="width:50%" name="cancer" id="cancer">
+                <option value="Drugs">Drugs</option>
+                <option value="BRCA">Olaparib</option>
+                <option value="COADREAD">Veliparib+Cisplastin</option>
+                <option value="CESC">Bicalutamide</option>
+                <option value="Afatinib">Afatinib</option>
+                <option value="Lapatinib">Lapatinib</option>
+                <option value="Neratinib">Neratinib</option>
+                <option value="Pertuzumab">Pertuzumab</option>
+            </select>
+        </div>
+    </div>
+    <div id="middlebox">
+        <label for="cancer"><b><br>Choose the Heatmap Type</b></label><br><br>
+        <select style="width:20%" name="cancer" id="cancer">
+            <option value="Heatmap">Heatmap</option>
+            <option value="Frequency">Frequency</option>
+            <option value="Alteration">Alteration</option>
+            <option value="Reg">Up and Down Regulation</option>
+        </select>
+    </div>
+    <div id="leftbox">
+        <label for="cancer"><b><br>Choose the visualization</b></label><br><br>
+        <select name="cancer" id="visual">
+            <option value="Choose_network">Choose Network</option>
+            <option value="gdi">Gene Drug Interaction Network</option>
+            <option value="ppi">Protein-Protein Interaction Network</option>
+            <option value="OP">Onco-Pathway</option>
+            <option value="OT">Onco-tree</option>
+        </select>
+    </div>
+    <div id="middlebox">
+        <label for="cancer"><b><br>Survival Plot</b></label><br><br>
+        <select style="width:30%" name="cancer" id="cancer">
+            <option value="CD">Clinical Data</option>
+            <option value="MC">Mutation Count</option>
+            <option value="DA">Diagnosis Age</option>
+            <option value="Sex">Sex</option>
+            <option value="OS">Overall Survival(Months)</option>
+            <option value="OSS"> Overall Survival Status</option>
+            <option value="PMS">Patient Metastatic Sites</option>
+            <option value="Cohort">Cohort</option>
+            <option value="TS">Tumor Stage</option>
+        </select>
+    </div>
+    <div id="leftbox">
+        <div style="float: left; width:50%;">
+            <label for="cancer"><b><br>Choose the cancer type driver genes</b></label><br><br>
+            <select style="width:65%" name="cancer" id="Driver_genes">
+                <option value="BRCA"> Breast invasive carcinoma (BRCA) </option>
+                <option value="COADREAD"> Colorectal adenocarcinoma (COADREAD)</option>
+                <option value="CESC"> Cervical carcinoma(CESC)</option>
+                <option value="LIHC"> Liver carcinoma(LIHC)</option>
+                <option value="SKCM"> Skin Cutaneous Melanoma (SKCM)</option>
+                <option value="OV"> Ovarian serous cystadenocarcinoma (OV)</option>
+                <option value="PRAD"> Prostate adenocarcinoma (PRAD)</option>
+                <option value="STAD"> Stomach carcinoma(STAD)</option>
+                <option value="SMLC"> Small cell Lung cancer(SCLC)</option>
+                <option value="NSCLC"> Non-Small cell Lung cancer(NSCLC)</option>
+            </select>
+        </div>
+        <div class="biomarkers">
+            <label for="cancer"><b><br>Choose the Cancer Type Biomarker Genes</b></label><br><br>
+            <select name="cancer" id="Bio_genes">
+                <option value="Biomarkers">Biomarkers</option>
+                <option value="AKT3">AKT3</option>
+                <option value="BRCA1">BRCA1</option>
+                <option value="CDH1">CDH1</option>
+                <option value="PIK3CA">PIK3CA</option>
+                <option value="PIK3CB">PIK3CB</option>
+                <option value="ERBB2">ERBB2</option>
+                <option value="ESR1">ESR1</option>
+                <option value="ERBB4">ERBB4</option>
+                <option value="TP53">TP53</option>
+            </select>
+        </div>
+    </div>
+    <div id="middlebox">
+        <label for="cancer"><b><br>Choose Machine Learning method</b></label><br><br>
+        <select style="width:35%" name="cancer" id="cancer">
+            <option value="MLM">Machine Learning Methods</option>
+            <option value="SVR"> Support Vector Regression (SVR)</option>
+            <option value="KNN">K-nearest neighbors (KNN)</option>
+            <option value="PLS">Partial least squares regression (PLS)</option>
+            <option value="RF">Random forest (RF)</option>
+            <option value="DT">Decision Trees (DT)</option>
+            <option value="PCR">Principal component regression (PCR)</option>
+            <option value="MLR">Multiple Linear Regression (MLR)</option>
+        </select>
+    </div>
+    </div>
+
+    <div id="leftbox">
+        <div style="float: left; width:50%;">
+            <label for="cancer"><b><br>Choose the cell line data</b></label><br><br>
+            <select style="width:50%" name="cancer" id="cancer">
+                <option value="BRCA">BRCA</option>
+                <option value="AU565">AU565</option>
+                <option value="BT-20">BT-20</option>
+                <option value="BT-474">BT-474</option>
+                <option value="BT-483">BT-483</option>
+                <option value="BT-549">BT-549</option>
+                <option value="CAL-120">CAL-120</option>
+                <option value="CAL-148">CAL-148</option>
+                <option value="CAL-51">CAL-51</option>
+                <option value="CAL-85-1">CAL-85-1</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div id="loading"></div>
+    <div class="cyto-container">
+
+    <style>
+            .cyto-container{
+                margin: 2.25em auto;
+                padding: 1.25em auto;
+                width: 80%;
+                height: 500px;
+                border: 2px solid black ;
+                position: absolute;
+                top: 100%;
+                display: flex;
+                align-self: center;
+                background-color: white;
+            }
+    </style>
+
+    <div class="net-viz-container">Network visualization</div>
+    <div id="cy"></div>
+
+
+    <style>
+    #cy{
+        width: 100%;
+        height: 100%;
+        position: relative;
+        /* z-index: 999; */
+    }
+</style>
+</div>
+
+
+</body>
+
+</html>

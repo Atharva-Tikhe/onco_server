@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OncoOmics GUI</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../static/css/index_page.css" />
+    <!-- <script src="../static/js/index_scriptGetScript.js" defer></script> -->
+    <script src="../static/js/submit_network.js" defer></script>
+  </head>
+  <body>
+    <div class="header">
+      <h1>OncoOmics Portal</h1>
+      <h1>A Web-Based Omic Analysis</h1>
+    </div>
+
+    <div class="links">
+      <a class="link" style="text-decoration: none" href="/home"><b>Home</b></a>
+      <a class="link" style="text-decoration: none" href="/browser"
+        ><b>Browse</b></a
+      >
+      <a class="link" style="text-decoration: none" href="/search"
+        ><b>Search</b></a
+      >
+      <a class="link" style="text-decoration: none" href="/downloads"
+        ><b>Downloads</b></a
+      >
+      <a class="link" style="text-decoration: none" href="/analysis"
+        ><b>Analysis</b></a
+      >
+      <a class="link" style="text-decoration: none" href="/about"
+        ><b>About</b></a
+      >
+      <a class="link" style="text-decoration: none" href="/statistics"
+        ><b>Statistics</b></a
+      >
+      <a class="link" style="text-decoration: none" href="/ML"
+        ><b>Machine Learning</b></a
+      >
+    </div>
+
+    <div>
+      <h3>Networks</h3>
+      <div id="cancer-type">
+        <label for="cancer"><b>Choose the Cancer Type</b></label>
+        <select name="cancer" id="cancer-type-select">
+          <option value="choose">Choose a Cancer Type</option>
+          <!-- <option value="breast">Breast invasive carcinoma (BRCA)</option> -->
+          <option value="colrec">Colorectal adenocarcinoma (COADREAD)</option>
+          <option value="cervical">Cervical carcinoma(CESC)</option>
+          <option value="liver">Liver carcinoma(LIHC)</option>
+          <option value="skin">Skin Cutaneous Melanoma (SKCM)</option>
+          <option value="ovar">Ovarian serous cystadenocarcinoma (OV)</option>
+          <option value="prost">Prostate adenocarcinoma (PRAD)</option>
+          <option value="stomach">Stomach carcinoma(STAD)</option>
+          <!-- <option value="lung">Lung cancer(LUSC)</option> -->
+          <option value="kidney">Kidney carcinoma(KIRC)</option>
+        </select>
+      </div>
+      <div id="viz-type">
+        <label for="cancer"><b>Choose the visualization</b></label>
+        <select name="cancer" id="visual">
+          <option value="Choose_network">Choose Network</option>
+          <option value="Gene-Drug">Gene Drug Interaction Network</option>
+          <option value="Protein-Protein">
+            Protein-Protein Interaction Network
+          </option>
+          <option value="OP">Onco-Pathway</option>
+          <option value="OT">Onco-tree</option>
+        </select>
+      </div>
+      <div id="submit-button">
+        <!-- <a id="submit" target="_blank">Visualize</a> -->
+        <button id="submit" type="submit" value="Submit">Visualize</button>
+      </div>
+    </div>
+
+    <div class="other-func">
+      <h3>Other Functionalities</h3>
+      <div class="link" id="autoplotter">
+        <a href="/autoplotter"><h4>Autoplotter for EDA</h4></a>
+      </div>
+      <div class="link" id="docking">
+        <a href="/docking" target="_blank"><h4>Docking</h4></a>
+      </div>
+      <div class="link" id="cheminfo">
+        <a href="/cheminformatics" target="_blank"><h4>Cheminformatics | Descriptor</h4></a>
+      </div>
+      <div class="link" id="cheminfo2">
+        <a href="/cheminformatics/rdkit" target="_blank"><h4>Cheminformatics | RDKIT</h4></a>
+      </div>
+      <!-- <div class="link" id="textmining">
+        <a id="text_mining_link" href="/textmining" target="_blank"
+          ><h4>Text Mining</h4></a
+        >
+      </div> -->
+    </div>
+    <hr />
+    <div class="about">
+      <h3>What is OncoOmics Portal?</h3>
+      <p class="about-info">
+        OncoOmics is publicly available portal that includes multi-omics data
+        for 10 Cancer types of TCGA and NCI projects and 10 Clinical Proteomics
+        Tumor Analysis Consortium (CPTAC) cancer cohorts. The web application
+        has analytical modules which contain omics data for OncoOmics Finder,
+        OncoOmics Interpreter, OncoOmics Visulization and OncoOmics Prediction
+        for prognosis or predictive models. OncoOmics Finder allows users to
+        search for attributes that are associated with a query attribute, such
+        as gene, drug, mRNA or protein expression signatures of genomic
+        alterations, candidate biomarkers of clinical attributes, SNPs, driver
+        genes, cell line for cancer types. Analysis results can be visualized by
+        scatter plots, box plots, or Kaplan-Meier plots, heatmap. To derive
+        biological insights from the association results, the OncoOmics
+        Interpreter module performs enrichment analysis based on Gene ontology,
+        onco pathways, network modules (gene-drug and protein-protein). The
+        OncoOmics visulization module uses data visualization functions
+        (interactive venn diagram, scatter plot, and sortable heat map) and
+        meta-analysis to compare and integrate association results generated by
+        the OncoOmics Finder module, which supports multi-omics analysis in a
+        10-cancer type. OncoOmics Prediction allows users to extract the
+        prognosis or predictive models for 10 cancer types against driver genes.
+        OncoOmics provides a unique platform for biologists and clinicians to
+        access, analyze and compare cancer multi-omics data within and across
+        tumor types.
+      </p>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>OncoOmics | Search</title>
+    <link rel="stylesheet" href="../static/css/search.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- <script src="static\js\search.js" defer></script> -->
+  </head>
+  <body>
+    <a class="back-btn" href="/" id="backlink">Go Back</a>
+    <h2>Search</h2>
+    <div class="search">
+      <select name="canceromics" id="parent-dirs">
+        <option value="BRCA">Breast carcinoma (BRCA)</option>
+        <option value="CESC">Cervical carcinoma(CESC)</option>
+        <option value="COADREAD">Colorectal adenocarcinoma (COADREAD)</option>
+        <option value="KIRC">Kidney carcinoma (KIRC)</option>
+        <option value="LIHC">Liver carcinoma (LIHC)</option>
+        <option value="LUSC">Lung cancer (LUSC)</option>
+        <option value="OV">Ovarian serous cystradenocarcinoma (OV)</option>
+        <option value="PRAD">Prostate adenocarcinoma (PRAD)</option>
+        <option value="SKCM">Skin cutaneous melanoma (SKCM)</option>
+        <option value="STAD">Stomach carcinoma (STAD)</option>
+      </select>
+      <!-- <a id="goBtn">Go</a> -->
+    </div>
+    <div class="search_btn">
+      <button class="go-btn">Find</button>
+    </div>
+    <div id="result"></div>
+
+    <script src="static\js\search.js"></script>
+  </body>
+</html>

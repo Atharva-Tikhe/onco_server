@@ -1,0 +1,74 @@
+#proteinFile {
+  width: 40em;
+}
+
+#ligandFileLable {
+  margin-top: 2em;
+}
+
+#ligandFile {
+  width: 40em;
+}
+
+form,
+#error {
+  margin-left: 2em;
+}
+
+#submit-btn {
+  margin: 2em 2em;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 2px;
+  background-color: black;
+  color: white;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#submit-btn:hover {
+  background-color: rgb(1, 59, 1);
+}
+
+/* .vina-inputs {
+  margin-inline: 5em;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  flex-wrap: wrap;
+} */
+
+.vina-inputs {
+  margin-inline: 5em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.vina-inputs > span,
+span {
+  margin: 2em 2em;
+}
+
+#view-grid-btn,
+button {
+  grid-row: 4;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 2px;
+  background-color: black;
+  color: white;
+  transition: background-color 0.3s ease-in-out;
+}
+
+#view-grid-btn:hover {
+  background-color: rgb(1, 59, 1);
+}
+
+.input-style {
+  display: flex;
+  flex-direction: column;
+}
+
+.disnone {
+  display: none;
+}
