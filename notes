@@ -1,0 +1,3 @@
+ps ax | grep gunicorn & pkill gunicorn - finds the gunicorn daemon and kills that process
+sudo service nginx restart - restarts the nginx service after sites-enabled has been changed
+gunicorn app:app --daemon - starts a daemon on the server which keeps the app running 24x7
