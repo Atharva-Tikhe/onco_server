@@ -18,13 +18,13 @@ app = Flask(__name__)
 sesh = Session()
 
 
-driver_files = os.listdir('files\\Driver')
+driver_files = os.listdir('files/Driver')
 
-gene_files = os.listdir('files\\Genes')
+gene_files = os.listdir('files/Genes')
 
-gene_drug_files = os.listdir(r'networks\Gene-Drug')
+gene_drug_files = os.listdir(r'networks/Gene-Drug')
 
-prot_prot_files = os.listdir(r'networks\Protein-Protein')
+prot_prot_files = os.listdir(r'networks/Protein-Protein')
 
 
 def make_token():
@@ -77,7 +77,7 @@ def about():
 
 @app.route('/sample_cyto.js')
 def new():
-    with open('static\js\sample_cyto.js') as f:
+    with open('static/js/ample_cyto.js') as f:
         response = app.response_class(response=f.readlines(),
                                       status=200,
                                       mimetype='text/html')
@@ -86,8 +86,8 @@ def new():
 
 @app.route('/networks/<path:jsName>', methods=['GET', 'POST'])
 def network_viz(jsName):
-    jsName = jsName.replace("/", "\\")
-    with open(f'networks\\{jsName}.js') as f:
+    #jsName = jsName.replace("/", "\\")
+    with open(f'networks/{jsName}.js') as f:
         response = app.response_class(response=f.readlines(),
                                       status=200,
                                       mimetype='application/json')
@@ -98,12 +98,12 @@ def network_viz(jsName):
 def download(filename):
     """check which files are requested based on anchor tag in html"""
     if not 'driver' in filename:
-        app.config['UPLOAD_FOLDER'] = 'files\\Genes'
+        app.config['UPLOAD_FOLDER'] = 'files/Genes'
         dir = os.path.join(current_app.root_path, app.config['UPLOAD_FOLDER'])
         print(dir)
         return send_from_directory(dir, path=filename)
     if 'driver' in filename:
-        app.config['UPLOAD_FOLDER'] = 'files\\Driver'
+        app.config['UPLOAD_FOLDER'] = 'files/Driver'
         dir = os.path.join(current_app.root_path, app.config['UPLOAD_FOLDER'])
         print(dir)
         return send_from_directory(dir, path=filename)
@@ -111,7 +111,7 @@ def download(filename):
 
 @app.route('/canceromics/download/<path:filename>')
 def download_canceromics_data(filename):
-    filename = filename.replace("/", "\\")
+    #filename = filename.replace("/", "\\")
     return send_file(fr'{filename}')
 
 
@@ -271,9 +271,9 @@ def download_data_extraction_result(filename):
 
 @app.route('/canceromics/<path:filename>')
 def load_files(filename):
-    parent = f'canceromics\\{filename}'
+    parent = f'canceromics/{filename}'
     FileDispatch = GetAllFiles()
-    FileTree = FileDispatch.getFiles(f'canceromics\\{filename}')
+    FileTree = FileDispatch.getFiles(f'canceromics/{filename}')
     return jsonify(FileTree)
 
 
@@ -288,7 +288,7 @@ def load_files(filename):
 @app.route('/cytoscape/network/<path:file>')
 def render_network(file):
     """render index.html from different cytoscape files """
-    app.config['NETWORK'] = 'networks\\Gene-Drug'
+    app.config['NETWORK'] = 'networks/Gene-Drug'
     dir = os.path.join(current_app.root_path, app.config['NETWORK'])
     return send_from_directory(dir, path=file)
 
@@ -370,12 +370,12 @@ def docking():
 
 @app.route('/pdbs/<filename>')
 def get_pdb(filename):
-    return send_file(rf'docking\{filename}')
+    return send_file(rf'docking/{filename}')
 
 
 @app.route('/ligand/<filename>')
 def get_ligand(filename):
-    return send_file(rf'docking\{filename}')
+    return send_file(rf'docking/{filename}')
 
 
 @app.route('/dockingFileUpload', methods=['GET', 'POST'])
@@ -408,7 +408,7 @@ def upload_docking_files():
 @app.route('/getCenters/<filename>')
 def get_center(filename):
     pdb_file = open(
-        rf'docking\{filename}').readlines()
+        rf'docking/{filename}').readlines()
     pdb = {'Record name': [],
            'Atom number': [],
            'Atom name': [],
@@ -474,7 +474,6 @@ def run_vina():
     sy = request.args.get('h')
     sz = request.args.get('d')
     output_file = ligand.split('.')[0] + 'output.pdbqt'
-    print(output_file)
     result = RunVina(receptor, ligand, x, y, z, exh, sx, sy, sz, output_file)
     result = result.run_process()
     return render_template('docking_result.html', result=result[0].decode(), error=result[1].decode(), output=output_file)
@@ -488,13 +487,13 @@ def send_output(filename):
 
 @app.route('/cheminformatics')
 def cheminfo():
-    dir = os.path.join(current_app.root_path, r'Cheminformatics\outputs')
+    dir = os.path.join(current_app.root_path, r'Cheminformatics/outputs')
     outputs = os.listdir(dir)
     return render_template('cheminfo_descriptor.html', outputs = outputs)
 
 @app.route('/cheminfo_outputs/<file>')
 def cheminfo_outputs(file):
-    dir = os.path.join(current_app.root_path, r'Cheminformatics\outputs')
+    dir = os.path.join(current_app.root_path, r'Cheminformatics/outputs')
     return send_from_directory(dir, file)
 
 @app.route('/cheminformatics/rdkit')
@@ -507,4 +506,4 @@ if __name__ == '__main__':
     app.config['SESSION_PERMANENT'] = False
     app.config['SESSION_TYPE'] = 'filesystem'
     sesh.init_app(app)
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=8080)

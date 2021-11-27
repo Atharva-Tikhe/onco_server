@@ -41,7 +41,7 @@ class RunVina:
 
     def run_process(self):
         proc = subprocess.Popen(
-            rf'wsl vina --receptor "/mnt/e/MIT/OncoOmics_portal/docking/{self.receptor}" --ligand "/mnt/e/MIT/OncoOmics_portal/docking/{self.ligand}" --center_x {self.x} --center_y {self.y} --center_z {self.z} --exhaustiveness {self.exh} --size_x {self.sx} --size_y {self.sy} --size_z {self.sz} --out "/mnt/e/MIT/OncoOmics_portal/docking/outputs/{self.output_file}"', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+            rf'vina --receptor "docking/{self.receptor}" --ligand "docking/{self.ligand}" --center_x {self.x} --center_y {self.y} --center_z {self.z} --exhaustiveness {self.exh} --size_x {self.sx} --size_y {self.sy} --size_z {self.sz} --out "docking/outputs/{self.output_file}"', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
         output, err = proc.communicate()
 
