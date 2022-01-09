@@ -124,7 +124,6 @@ def test(csv_name):
     return response
 
 
-
 # autoplotter routing and process management ------------- START
 
 
@@ -489,16 +488,19 @@ def send_output(filename):
 def cheminfo():
     dir = os.path.join(current_app.root_path, r'Cheminformatics/outputs')
     outputs = os.listdir(dir)
-    return render_template('cheminfo_descriptor.html', outputs = outputs)
+    return render_template('cheminfo_descriptor.html', outputs=outputs)
+
 
 @app.route('/cheminfo_outputs/<file>')
 def cheminfo_outputs(file):
     dir = os.path.join(current_app.root_path, r'Cheminformatics/outputs')
     return send_from_directory(dir, file)
 
+
 @app.route('/cheminformatics/rdkit')
 def render_chem_out():
     return render_template('Chemoinformatics_RDKit_SMILES_Molecule.html')
+
 
 if __name__ == '__main__':
 
@@ -506,4 +508,4 @@ if __name__ == '__main__':
     app.config['SESSION_PERMANENT'] = False
     app.config['SESSION_TYPE'] = 'filesystem'
     sesh.init_app(app)
-    app.run(host='0.0.0.0', port=8080)
+    app.run(host='127.0.0.1', port=8080)

@@ -46,3 +46,14 @@ goBtn.addEventListener("click", function fetchDisplay() {
   };
   xhr.send();
 });
+
+// Button clicking code for genomics and proteomics,transcriptomics.
+
+const genomics = document.getElementById("gen-btn");
+const prot = document.getElementById("prot-btn");
+
+prot.addEventListener("click", () => {
+  var showFiles = document.getElementByClassName("prot-container");
+  showFiles.style.display = "block";
+  alert("check files");
+});
